@@ -36,7 +36,7 @@ const newPassport = function (person) {
 newPassport(jonas);
 console.log(jonas);
 
-*/
+
 
 const oneWord = function (str) {
   return str.replaceAll(' ', '');
@@ -55,3 +55,18 @@ function transformer(str, fn) {
 
 transformer('javascript is the most popular', oneWord);
 transformer('javascript is the most popular', firstUpperWord);
+
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeter = greet('hello!');
+greeter('subodh');
+
+const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+
+greet2('hey')('banti');
