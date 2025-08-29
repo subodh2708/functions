@@ -56,7 +56,7 @@ function transformer(str, fn) {
 transformer('javascript is the most popular', oneWord);
 transformer('javascript is the most popular', firstUpperWord);
 
-*/
+
 
 const greet = function (greeting) {
   return function (name) {
@@ -70,3 +70,41 @@ greeter('subodh');
 const greet2 = greeting => name => console.log(`${greeting} ${name}`);
 
 greet2('hey')('banti');
+
+*/
+
+const lufthansa = {
+  airline: 'lufthansa',
+  iatacode: 'LH',
+  bookings: [],
+  book(flightnum, name) {
+    console.log(
+      `${name} has booked a seat in ${this.airline} flight ${this.iatacode}${flightnum}`
+    );
+    this.bookings.push({ flight: `${this.iatacode}${flightnum}`, name });
+  },
+};
+
+lufthansa.book(234, 'subodh');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'eurowings',
+  iatacode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+console.log(book);
+
+book.call(eurowings, 999, 'Sonu');
+book.call(lufthansa, 270, 'Sanya');
+
+console.log(eurowings);
+
+//Apply Method
+const flightData = [152, 'Papa'];
+book.apply(eurowings, flightData);
+console.log(eurowings);
+book.call(lufthansa, ...flightData);
+console.log(lufthansa);
