@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 const flight = 'LH234';
 const jonas = {
   name: 'Jonas',
@@ -34,3 +35,23 @@ const newPassport = function (person) {
 
 newPassport(jonas);
 console.log(jonas);
+
+*/
+
+const oneWord = function (str) {
+  return str.replaceAll(' ', '');
+};
+
+const firstUpperWord = function (str) {
+  const words = str.split(' ');
+  const [firstword, ...otherwords] = words;
+
+  return [firstword.toUpperCase(), ...otherwords].join(' ');
+};
+
+function transformer(str, fn) {
+  console.log(`tranformed : ${fn(str)}`);
+}
+
+transformer('javascript is the most popular', oneWord);
+transformer('javascript is the most popular', firstUpperWord);
